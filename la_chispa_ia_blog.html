@@ -1,0 +1,2375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Chispa IA - Inteligencia Artificial para Todos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Professional Improvements */
+        :root {
+            --primary-bg: #0a0d14;
+            --secondary-bg: #1a1d29;
+            --accent-bg: #242938;
+            --professional-blue: #1e3a5f;
+            --professional-gold: #ffd700;
+            --electric-blue: #3b82f6;
+            --electric-purple: #8b5cf6;
+            --electric-green: #10b981;
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --gradient-main: linear-gradient(135deg, #1e3a5f 0%, #3b82f6 100%);
+            --gradient-professional: linear-gradient(135deg, #1e3a5f 0%, #2c5282 50%, #ffd700 100%);
+            --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-large: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            letter-spacing: -0.01em;
+        }
+
+        /* Enhanced Header */
+        header {
+            background: rgba(26, 29, 41, 0.95);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+            box-shadow: var(--shadow-soft);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Enhanced Navigation Links */
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .nav-links a:hover {
+            color: var(--professional-gold);
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--professional-gold);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover::after {
+            width: 80%;
+        }
+
+        /* Enhanced Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(30, 58, 95, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+            animation: heroGlow 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroGlow {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: var(--gradient-professional);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideUp 1s ease-out;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: var(--professional-gold);
+            margin-bottom: 2rem;
+            animation: slideUp 1s ease-out 0.2s both;
+            font-weight: 600;
+        }
+
+        /* Enhanced CTA Button */
+        .cta-button {
+            background: var(--gradient-main);
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-medium);
+            animation: slideUp 1s ease-out 0.6s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-large);
+        }
+
+        /* Enhanced Cards */
+        .article-card {
+            background: var(--secondary-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .article-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-professional);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--professional-gold);
+            box-shadow: var(--shadow-large);
+            background: rgba(26, 29, 41, 0.8);
+        }
+
+        .article-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .article-category {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--professional-gold);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        /* Enhanced Newsletter Section */
+        .newsletter {
+            background: var(--secondary-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .newsletter::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 215, 0, 0.05), transparent);
+            animation: rotate 15s linear infinite;
+        }
+
+        /* Enhanced Form Elements */
+        .newsletter-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: 2px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            background: rgba(26, 29, 41, 0.8);
+            color: var(--text-primary);
+            font-size: 1rem;
+            min-width: 250px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--professional-gold);
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+            background: rgba(26, 29, 41, 0.9);
+        }
+
+        .newsletter-btn {
+            background: var(--gradient-main);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .newsletter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        /* Enhanced Filter Buttons */
+        .filter-btn {
+            background: transparent;
+            border: 2px solid var(--professional-blue);
+            color: var(--professional-blue);
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--professional-gold);
+            border-color: var(--professional-gold);
+            color: var(--primary-bg);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* Enhanced Footer */
+        footer {
+            background: var(--secondary-bg);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(59, 130, 246, 0.1);
+            box-shadow: var(--shadow-soft);
+        }
+
+        /* Enhanced AI Badge */
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(255, 215, 0, 0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        .ai-badge::before {
+            content: '🤖';
+            font-size: 1.2rem;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--text-primary);
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+            background: #ffd700;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.4);
+        }
+
+        .logo-icon::after {
+            content: '⚡';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 14px;
+            color: #1e3a5f;
+            z-index: 2;
+        }
+
+        .logo-text {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 50%, #ffd700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.5)); }
+            to { filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.8)); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--electric-blue);
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--electric-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--electric-blue);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: var(--gradient-electric);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            animation: slideUp 1s ease-out 0.2s both;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            animation: slideUp 1s ease-out 0.4s both;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            background: var(--gradient-main);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            animation: slideUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 6rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: var(--gradient-electric);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Articles Grid */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .article-card {
+            background: var(--secondary-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-electric);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--electric-blue);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .article-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .article-category {
+            display: inline-block;
+            background: rgba(139, 92, 246, 0.2);
+            color: var(--electric-purple);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .article-excerpt {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .read-more {
+            color: var(--electric-blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: var(--electric-green);
+        }
+
+        /* Filter Buttons */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 2px solid var(--electric-blue);
+            color: var(--electric-blue);
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--electric-blue);
+            color: var(--primary-bg);
+            transform: translateY(-2px);
+        }
+
+        /* Resources Section */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .resource-card {
+            background: var(--accent-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--electric-green);
+            box-shadow: 0 15px 30px rgba(0, 255, 136, 0.2);
+        }
+
+        .resource-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-electric);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .resource-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .resource-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .download-btn {
+            background: var(--electric-green);
+            color: var(--primary-bg);
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: #00cc77;
+            transform: translateY(-2px);
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background: var(--secondary-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .newsletter-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .newsletter h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-electric);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .newsletter p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 25px;
+            background: rgba(26, 26, 46, 0.8);
+            color: var(--text-primary);
+            font-size: 1rem;
+            min-width: 250px;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--electric-blue);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .newsletter-btn {
+            background: var(--gradient-main);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-bg);
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--electric-blue);
+        }
+
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        .ai-badge::before {
+            content: '🤖';
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Design Enhancements */
+        @media (max-width: 768px) {
+            .logo {
+                gap: 0.5rem;
+            }
+            
+            .logo-icon {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .logo-text {
+                font-size: 1.4rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(26, 29, 41, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 2rem;
+                border-top: 1px solid rgba(59, 130, 246, 0.1);
+                box-shadow: var(--shadow-medium);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .newsletter-input {
+                min-width: 100%;
+                margin-bottom: 0;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-buttons {
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
+            }
+
+            .hero-content {
+                padding: 2rem 1rem;
+            }
+
+            .article-content {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Loading and Animation Enhancements */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(59, 130, 246, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--professional-gold);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        /* Smooth scroll improvements */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Focus states for accessibility */
+        *:focus {
+            outline: 2px solid var(--professional-gold);
+            outline-offset: 2px;
+        }
+
+        button:focus,
+        input:focus,
+        a:focus {
+            outline: 2px solid var(--professional-gold);
+            outline-offset: 2px;
+        }
+
+        /* Social Media Section */
+        .social-section {
+            margin-top: 3rem;
+            animation: slideUp 1s ease-out 0.8s both;
+        }
+
+        .social-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 12px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-link:hover::before {
+            opacity: 1;
+        }
+
+        .social-link svg {
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .social-link:hover svg {
+            transform: scale(1.1);
+        }
+
+        /* TikTok Styling */
+        .social-link.tiktok {
+            background: rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        .social-link.tiktok::before {
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+        }
+
+        .social-link.tiktok:hover {
+            color: #ff0050;
+            border-color: rgba(255, 0, 80, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .social-link.tiktok:hover::before {
+            opacity: 1;
+        }
+
+        /* YouTube Styling */
+        .social-link.youtube {
+            background: rgba(255, 0, 0, 0.1);
+            border: 2px solid rgba(255, 0, 0, 0.2);
+            color: #ff0000;
+        }
+
+        .social-link.youtube::before {
+            background: linear-gradient(135deg, #ff0000, #ff4444);
+        }
+
+        .social-link.youtube:hover {
+            color: white;
+        }
+
+        /* Instagram Styling */
+        .social-link.instagram {
+            background: rgba(225, 48, 108, 0.1);
+            border: 2px solid rgba(225, 48, 108, 0.2);
+            color: #e1306c;
+        }
+
+        .social-link.instagram::before {
+            background: linear-gradient(135deg, #e1306c, #fd1d1d, #fcb045);
+        }
+
+        .social-link.instagram:hover {
+            color: white;
+        }
+
+        /* Responsive adjustments for social section */
+        @media (max-width: 768px) {
+            .social-section {
+                margin-top: 2rem;
+            }
+
+            .social-links {
+                gap: 1rem;
+            }
+
+            .social-link {
+                width: 45px;
+                height: 45px;
+            }
+
+            .social-text {
+                font-size: 1rem;
+            }
+        }
+
+        /* Improved scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--primary-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--professional-blue);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--professional-gold);
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Article Detail Styles */
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .back-btn {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            color: var(--electric-blue);
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+
+        .back-btn:hover {
+            background: rgba(0, 212, 255, 0.2);
+            transform: translateX(-5px);
+        }
+
+        .article-main-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin: 1rem 0 2rem;
+            background: var(--gradient-electric);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.3;
+        }
+
+        .article-meta-header {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .article-intro {
+            background: var(--secondary-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--electric-blue);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .article-section {
+            margin-bottom: 3rem;
+        }
+
+        .article-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--electric-blue);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .article-section p {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .highlight-box {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: var(--text-primary);
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--electric-blue);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 80px;
+        }
+
+        .timeline-year {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--electric-blue);
+            color: var(--primary-bg);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .timeline-content {
+            background: var(--accent-bg);
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 3px solid var(--electric-blue);
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            background: var(--secondary-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr 2fr;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .table-header {
+            background: rgba(0, 212, 255, 0.1);
+            font-weight: 600;
+            color: var(--electric-blue);
+        }
+
+        .table-cell {
+            padding: 0.5rem;
+        }
+
+        /* VS Comparison */
+        .vs-comparison {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 2rem;
+            align-items: center;
+            margin: 2rem 0;
+        }
+
+        .vs-item {
+            background: var(--secondary-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .vs-item h3 {
+            color: var(--electric-blue);
+            margin-bottom: 1rem;
+        }
+
+        .vs-divider {
+            background: var(--electric-purple);
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            font-weight: bold;
+            text-align: center;
+            min-width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Daily AI Grid */
+        .daily-ai-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .daily-ai-item {
+            background: var(--accent-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .daily-ai-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--electric-green);
+        }
+
+        .daily-ai-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .daily-ai-item h4 {
+            color: var(--electric-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .daily-ai-item p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Generative Capabilities */
+        .generative-capabilities {
+            display: grid;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .capability-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--secondary-bg);
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 3px solid var(--electric-purple);
+        }
+
+        .capability-icon {
+            font-size: 1.5rem;
+            min-width: 40px;
+        }
+
+        /* Article Conclusion */
+        .article-conclusion {
+            background: var(--secondary-bg);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            text-align: center;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .article-conclusion h2 {
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .conclusion-cta {
+            background: rgba(0, 212, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .conclusion-cta p {
+            margin: 0;
+            color: var(--text-primary);
+        }
+
+        /* Article Footer */
+        .article-footer {
+            background: var(--accent-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+        }
+
+        .article-footer h3 {
+            color: var(--electric-blue);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .next-steps {
+            margin-bottom: 2rem;
+        }
+
+        .next-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(0, 212, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .step-icon {
+            font-size: 1.2rem;
+            min-width: 30px;
+        }
+
+        .article-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .share-btn {
+            background: var(--electric-blue);
+            color: var(--primary-bg);
+        }
+
+        .save-btn {
+            background: var(--electric-green);
+            color: var(--primary-bg);
+        }
+
+        .newsletter-btn {
+            background: var(--gradient-main);
+            color: white;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive adjustments for article */
+        @media (max-width: 768px) {
+            .article-meta-header {
+                gap: 1rem;
+                font-size: 0.8rem;
+            }
+
+            .table-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .vs-comparison {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .vs-divider {
+                order: -1;
+            }
+
+            .daily-ai-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .article-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .action-btn {
+                width: 100%;
+                max-width: 200px;
+            }
+
+            .timeline::before {
+                left: 15px;
+            }
+
+            .timeline-item {
+                padding-left: 50px;
+            }
+        }
+
+        /* Utility Classes */
+        .hidden { display: none; }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <span class="logo-text">LA CHISPA IA</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio" onclick="showSection('inicio')">Inicio</a></li>
+                <li><a href="#articulos" onclick="showSection('articulos')">Artículos</a></li>
+                <li><a href="#sobre-mi" onclick="showSection('sobre-mi')">Sobre Mí</a></li>
+            </ul>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="inicio" class="hero section">
+            <div class="hero-content">
+                <h1>La Chispa IA</h1>
+                <p class="hero-subtitle">Inteligencia Artificial para Todos</p>
+                <p class="hero-description">
+                    Descubre cómo la IA puede transformar tu vida cotidiana y tu negocio. 
+                    Guías prácticas, herramientas y recursos para aprovechar el poder de la 
+                    inteligencia artificial sin necesidad de conocimientos técnicos.
+                </p>
+                <a href="#articulos" class="cta-button" onclick="showSection('articulos')">
+                    📚 Ver Artículos
+                </a>
+                
+                <div class="social-section">
+                    <p class="social-text">Síguenos en las redes sociales:</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link tiktok" aria-label="TikTok">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43V7.56a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.05z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link youtube" aria-label="YouTube">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link instagram" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="ai-badge">
+                    Contenido potenciado por IA de última generación
+                </div>
+            </div>
+        </section>
+
+        <!-- Artículos Section -->
+        <section id="articulos" class="section hidden">
+            <h2 class="section-title">📚 Últimos Artículos</h2>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterArticles('todos')">Todos</button>
+                <button class="filter-btn" onclick="filterArticles('productividad')">Productividad</button>
+            </div>
+
+            <div class="articles-grid" id="articlesGrid">
+                <article class="article-card" data-category="productividad">
+                    <span class="article-category">Fundamentos IA</span>
+                    <h3 class="article-title">Inteligencia Artificial: Qué es, cómo funciona y por qué ya forma parte de tu vida</h3>
+                    <p class="article-excerpt">
+                        Descubre qué es realmente la IA, cómo ha evolucionado, qué tipos existen 
+                        y cómo está transformando nuestras vidas cotidianas sin que lo notemos.
+                    </p>
+                    <div class="article-meta">
+                        <span>8 min de lectura</span>
+                        <a href="#" class="read-more" onclick="showSection('articulo-ia-fundamentos')">Leer más →</a>
+                    </div>
+                </article>
+
+                <article class="article-card" data-category="productividad">
+                    <span class="article-category">Productividad</span>
+                    <h3 class="article-title">Impacto y aplicaciones de la IA</h3>
+                    <p class="article-excerpt">
+                        Descubre como la IA esta impactando nuestras vidas proximamente nuevo episodio 10-08-2025.
+                    </p>
+                    <div class="article-meta">
+                        <span>5 min de lectura</span>
+                        <a href="#" class="read-more">Leer más →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Guías Prácticas Section -->
+        <section id="guias" class="section hidden">
+            <h2 class="section-title">🎯 Guías Prácticas</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">📖</div>
+                    <h3 class="resource-title">Curso: IA para Principiantes</h3>
+                    <p class="resource-description">
+                        Aprende los fundamentos de la IA y cómo aplicarla en tu día a día 
+                        con este curso gratuito de 5 módulos.
+                    </p>
+                    <button class="download-btn">Empezar Curso</button>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">⚙️</div>
+                    <h3 class="resource-title">Tutorial: Automatización con Make</h3>
+                    <p class="resource-description">
+                        Paso a paso para crear tu primera automatización conectando 
+                        Google Sheets, Gmail y ChatGPT.
+                    </p>
+                    <button class="download-btn">Ver Tutorial</button>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">💡</div>
+                    <h3 class="resource-title">Masterclass: Prompting Avanzado</h3>
+                    <p class="resource-description">
+                        Técnicas profesionales para obtener los mejores resultados 
+                        de ChatGPT, Claude y otros modelos de IA.
+                    </p>
+                    <button class="download-btn">Acceder</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recursos Section -->
+        <section id="recursos" class="section hidden">
+            <h2 class="section-title">🎁 Recursos Gratuitos</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon">📝</div>
+                    <h3 class="resource-title">Pack de 100 Prompts</h3>
+                    <p class="resource-description">
+                        Colección de prompts probados para marketing, escritura, 
+                        análisis y automatización de tareas.
+                    </p>
+                    <button class="download-btn">Descargar PDF</button>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">📊</div>
+                    <h3 class="resource-title">Plantillas de Análisis</h3>
+                    <p class="resource-description">
+                        Hojas de cálculo y plantillas para analizar datos con IA 
+                        y tomar decisiones basadas en insights.
+                    </p>
+                    <button class="download-btn">Descargar</button>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">🤖</div>
+                    <h3 class="resource-title">Ebook: IA en Pequeños Negocios</h3>
+                    <p class="resource-description">
+                        Guía completa de 50 páginas sobre cómo implementar IA 
+                        en tu negocio sin inversión técnica.
+                    </p>
+                    <button class="download-btn">Obtener Ebook</button>
+                </div>
+
+                <div class="resource-card">
+                    <div class="resource-icon">🎨</div>
+                    <h3 class="resource-title">Kit de Diseño con IA</h3>
+                    <p class="resource-description">
+                        Prompts, plantillas y recursos para crear diseños 
+                        profesionales usando herramientas de IA.
+                    </p>
+                    <button class="download-btn">Descargar Kit</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Article Detail Section -->
+        <section id="articulo-ia-fundamentos" class="section hidden">
+            <div class="article-header">
+                <button class="back-btn" onclick="showSection('articulos')">
+                    ← Volver a Artículos
+                </button>
+                <span class="article-category">Fundamentos IA</span>
+                <h1 class="article-main-title">
+                    Inteligencia Artificial: Qué es, cómo funciona y por qué ya forma parte de tu vida
+                </h1>
+                <div class="article-meta-header">
+                    <span>📅 Hace 2 días</span>
+                    <span>⏱️ 8 min de lectura</span>
+                    <span>👁️ 1,247 vistas</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+                <div class="article-intro">
+                    <p>
+                        La Inteligencia Artificial (IA) ya no es un concepto futurista reservado para películas o laboratorios de alta tecnología. Hoy, la IA está transformando silenciosamente la manera en que vivimos, trabajamos y nos relacionamos, muchas veces sin que lo notemos. Desde recomendaciones en Netflix hasta asistentes de voz, pasando por diagnósticos médicos y automatización empresarial, la IA está en todas partes.
+                    </p>
+                    <p>
+                        En este artículo, descubrirás qué es realmente la IA, cómo ha evolucionado, qué tipos existen y cómo está influyendo —y mejorando— nuestras vidas cotidianas.
+                    </p>
+                </div>
+
+                <div class="article-section">
+                    <h2>🔍 ¿Qué es la Inteligencia Artificial?</h2>
+                    <p>
+                        La Inteligencia Artificial (IA) es una rama de la informática que busca simular capacidades humanas como aprender, razonar, tomar decisiones o comunicarse. A través de algoritmos avanzados y grandes volúmenes de datos, las máquinas pueden resolver problemas complejos, analizar información y actuar de manera autónoma o asistida.
+                    </p>
+                    <div class="highlight-box">
+                        <p>
+                            <strong>💡 Dato clave:</strong> También se le conoce como Inteligencia Aumentada, ya que en muchos casos no sustituye al humano, sino que potencia sus capacidades.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="article-section">
+                    <h2>🕰️ Breve historia de la IA</h2>
+                    <p>La IA no nació de la noche a la mañana. Estos son algunos hitos clave:</p>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">1950s</div>
+                            <div class="timeline-content">
+                                Alan Turing propone la famosa "prueba de Turing" para determinar si una máquina puede pensar.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">1956</div>
+                            <div class="timeline-content">
+                                John McCarthy acuña el término Artificial Intelligence.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">1960s–70s</div>
+                            <div class="timeline-content">
+                                Nacen los primeros programas de IA como ELIZA y los sistemas expertos.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">1980s–90s</div>
+                            <div class="timeline-content">
+                                Se expande el aprendizaje automático y las redes neuronales.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-year">2000s–hoy</div>
+                            <div class="timeline-content">
+                                El aprendizaje profundo y los grandes modelos lingüísticos (como GPT, Claude o Mistral) revolucionan la IA moderna.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-section">
+                    <h2>📚 Tipos de Inteligencia Artificial</h2>
+                    <p>La IA se clasifica según su alcance y nivel de autonomía:</p>
+                    <div class="comparison-table">
+                        <div class="table-row table-header">
+                            <div class="table-cell">Tipo de IA</div>
+                            <div class="table-cell">Características</div>
+                            <div class="table-cell">Ejemplos</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell"><strong>IA débil o estrecha</strong></div>
+                            <div class="table-cell">Especializada en tareas concretas</div>
+                            <div class="table-cell">Siri, Alexa, Google Translate</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell"><strong>IA fuerte o general</strong></div>
+                            <div class="table-cell">Aprende y se adapta a múltiples contextos</div>
+                            <div class="table-cell">En investigación: salud, robótica, negocios</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-cell"><strong>Superinteligencia</strong></div>
+                            <div class="table-cell">Superaría las capacidades humanas</div>
+                            <div class="table-cell">Aún en fase conceptual</div>
+                        </div>
+                    </div>
+                    <div class="highlight-box">
+                        <p>
+                            <strong>🎨 IA Generativa:</strong> Una categoría actual y poderosa que permite crear contenido original: textos, imágenes, videos o música. Herramientas como ChatGPT, DALL·E o Midjourney lo demuestran.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="article-section">
+                    <h2>🧠 IA vs Inteligencia Aumentada</h2>
+                    <div class="vs-comparison">
+                        <div class="vs-item">
+                            <h3>🤖 IA</h3>
+                            <p>Automatiza tareas. Ejemplo: conducción autónoma en autopista.</p>
+                        </div>
+                        <div class="vs-divider">VS</div>
+                        <div class="vs-item">
+                            <h3>👨‍💼 Humano</h3>
+                            <p>Toma decisiones complejas, aporta creatividad, improvisa.</p>
+                        </div>
+                    </div>
+                    <div class="highlight-box">
+                        <p>
+                            <strong>🚀 IA Aumentada:</strong> La unión de ambos. Ejemplo: autos que alertan de puntos ciegos o adaptan el trayecto, pero el conductor toma el control final. Esta colaboración potencia lo mejor de ambos mundos.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="article-section">
+                    <h2>🌍 ¿Dónde está la IA en tu vida diaria?</h2>
+                    <p>Aunque no lo notes, ya usas IA todos los días:</p>
+                    <div class="daily-ai-grid">
+                        <div class="daily-ai-item">
+                            <div class="daily-ai-icon">📱</div>
+                            <h4>Recomendaciones en TikTok/Netflix</h4>
+                            <p>Algoritmos analizan tus hábitos de visualización</p>
+                        </div>
+                        <div class="daily-ai-item">
+                            <div class="daily-ai-icon">🗣️</div>
+                            <h4>Asistentes virtuales</h4>
+                            <p>Google, Siri procesan lenguaje natural</p>
+                        </div>
+                        <div class="daily-ai-item">
+                            <div class="daily-ai-icon">✉️</div>
+                            <h4>Gmail o WhatsApp</h4>
+                            <p>Predicen y corrigen textos automáticamente</p>
+                        </div>
+                        <div class="daily-ai-item">
+                            <div class="daily-ai-icon">🗺️</div>
+                            <h4>Google Maps o Waze</h4>
+                            <p>Predicen tráfico y optimizan rutas</p>
+                        </div>
+                        <div class="daily-ai-item">
+                            <div class="daily-ai-icon">🛒</div>
+                            <h4>Tiendas online</h4>
+                            <p>Sugieren productos y previenen fraudes</p>
+                        </div>
+                        <div class="daily-ai-item">
+                            <div class="daily-ai-icon">🏥</div>
+                            <h4>Salud</h4>
+                            <p>Diagnósticos por imágenes, tratamientos personalizados</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-section">
+                    <h2>🧪 ¿Qué es la IA Generativa?</h2>
+                    <p>La IA generativa va un paso más allá: no solo analiza, sino que crea. Con modelos como GPT-4 o Claude, puedes generar:</p>
+                    <div class="generative-capabilities">
+                        <div class="capability-item">
+                            <span class="capability-icon">📝</span>
+                            <span>Artículos, historias o descripciones de productos</span>
+                        </div>
+                        <div class="capability-item">
+                            <span class="capability-icon">🎨</span>
+                            <span>Imágenes y arte digital</span>
+                        </div>
+                        <div class="capability-item">
+                            <span class="capability-icon">🎬</span>
+                            <span>Videos, música y código de software</span>
+                        </div>
+                        <div class="capability-item">
+                            <span class="capability-icon">🤖</span>
+                            <span>Asistentes conversacionales personalizados</span>
+                        </div>
+                    </div>
+                    <p>
+                        Sectores como el marketing, la medicina, la moda, la educación o el entretenimiento ya están usando esta tecnología para ser más eficientes, innovadores y escalables.
+                    </p>
+                </div>
+
+                <div class="article-section">
+                    <h2>🚦 ¿Hemos llegado a la verdadera inteligencia artificial?</h2>
+                    <p>
+                        No del todo. Aún no alcanzamos la IA general (AGI), capaz de replicar todas las capacidades humanas. Lo que tenemos son modelos muy poderosos en tareas específicas, pero sin conciencia o emociones.
+                    </p>
+                    <p>
+                        Sin embargo, el progreso es tan acelerado que nos estamos acercando rápidamente. Y lo más importante: ya puedes usar estas herramientas para mejorar tu vida y tu trabajo, sin necesidad de ser programador.
+                    </p>
+                </div>
+
+                <div class="article-conclusion">
+                    <h2>✅ Conclusión: La IA ya está cambiando tu mundo. ¿Estás listo?</h2>
+                    <p>
+                        La Inteligencia Artificial está transformando silenciosamente nuestra sociedad. Desde lo más simple hasta lo más sofisticado, la IA está ayudando a personas y empresas a ahorrar tiempo, ser más creativos, tomar mejores decisiones y automatizar procesos.
+                    </p>
+                    <p>
+                        Y lo mejor: tú también puedes hacerlo. Desde este blog, te ayudaremos paso a paso a descubrir y aplicar el poder de la IA en tu día a día.
+                    </p>
+                    <div class="conclusion-cta">
+                        <p><strong>Bienvenido a La Chispa IA. ¡Aquí comienza tu viaje hacia un futuro más inteligente!</strong></p>
+                    </div>
+                </div>
+
+                <div class="article-footer">
+                    <div class="article-actions">
+                        <button class="action-btn share-btn" onclick="shareArticle()">
+                            📤 Compartir
+                        </button>
+                        <button class="action-btn save-btn" onclick="saveArticle()">
+                            💾 Guardar
+                        </button>
+                        <button class="action-btn newsletter-btn" onclick="showSection('newsletter')">
+                            🚀 Suscribirse
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre Mí Section -->
+        <section id="sobre-mi" class="section hidden">
+            <h2 class="section-title">👋 Sobre La Chispa IA</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--text-secondary);">
+                    Bienvenido a La Chispa IA, tu fuente confiable para descubrir cómo la 
+                    inteligencia artificial puede transformar tu vida personal y profesional.
+                </p>
+                
+                <div style="background: var(--secondary-bg); padding: 3rem; border-radius: 20px; border: 1px solid rgba(0, 212, 255, 0.2);">
+                    <h3 style="color: var(--electric-blue); margin-bottom: 2rem; font-size: 1.5rem;">Nuestra Misión</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                        Democratizar el acceso a la inteligencia artificial, haciendo que estas 
+                        poderosas herramientas sean accesibles y útiles para todos, 
+                        independientemente de su formación técnica.
+                    </p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin: 3rem 0;">
+                        <div>
+                            <h4 style="color: var(--electric-purple); margin-bottom: 1rem;">🎯 Enfoque</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                                Aplicaciones prácticas de IA en la vida real, sin tecnicismos complejos.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--electric-green); margin-bottom: 1rem;">🚀 Innovación</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                                Exploramos las últimas herramientas y tendencias en IA accesible.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--electric-blue); margin-bottom: 1rem;">💡 Educación</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                                Contenido educativo que inspire y capacite a nuestra comunidad.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section id="newsletter" class="section newsletter">
+            <div class="newsletter-content">
+                <h3>🔥 Únete a La Chispa IA</h3>
+                <p>
+                    Recibe cada semana las últimas tendencias en IA, guías prácticas exclusivas 
+                    y recursos gratuitos directamente en tu bandeja de entrada.
+                </p>
+                <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                    <input 
+                        type="email" 
+                        class="newsletter-input" 
+                        placeholder="tu@email.com" 
+                        required
+                        id="emailInput"
+                    >
+                    <button type="submit" class="newsletter-btn" id="subscribeBtn">
+                        Suscribirme
+                    </button>
+                </form>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 1rem;">
+                    📧 +5,000 suscriptores ya reciben contenido exclusivo sobre IA
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#inicio" onclick="showSection('inicio')">Inicio</a>
+                <a href="#articulos" onclick="showSection('articulos')">Artículos</a>
+                <a href="#sobre-mi" onclick="showSection('sobre-mi')">Sobre Mí</a>
+            </div>
+            
+            <p style="color: var(--text-secondary); margin-top: 2rem;">
+                © 2025 La Chispa IA. Democratizando la inteligencia artificial para todos.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // State management
+        let currentSection = 'inicio';
+        let currentFilter = 'todos';
+        let isMenuOpen = false;
+
+        // Navigation functionality
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Show selected section
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+                targetSection.classList.add('fade-in');
+                currentSection = sectionId;
+            }
+
+            // Close mobile menu if open
+            if (isMenuOpen) {
+                toggleMenu();
+            }
+
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            isMenuOpen = !isMenuOpen;
+            
+            if (isMenuOpen) {
+                navLinks.classList.add('active');
+                menuToggle.style.transform = 'rotate(90deg)';
+            } else {
+                navLinks.classList.remove('active');
+                menuToggle.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Article filtering
+        function filterArticles(category) {
+            const articles = document.querySelectorAll('.article-card');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            
+            // Update active filter button
+            filterBtns.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            currentFilter = category;
+            
+            // Filter articles with animation
+            articles.forEach((article, index) => {
+                const articleCategory = article.getAttribute('data-category');
+                const shouldShow = category === 'todos' || articleCategory === category;
+                
+                setTimeout(() => {
+                    if (shouldShow) {
+                        article.style.display = 'block';
+                        article.style.opacity = '0';
+                        article.style.transform = 'translateY(20px)';
+                        
+                        setTimeout(() => {
+                            article.style.transition = 'all 0.5s ease';
+                            article.style.opacity = '1';
+                            article.style.transform = 'translateY(0)';
+                        }, 50);
+                    } else {
+                        article.style.transition = 'all 0.3s ease';
+                        article.style.opacity = '0';
+                        article.style.transform = 'translateY(-20px)';
+                        
+                        setTimeout(() => {
+                            article.style.display = 'none';
+                        }, 300);
+                    }
+                }, index * 100);
+            });
+        }
+
+        // Newsletter subscription
+        function subscribeNewsletter(event) {
+            event.preventDefault();
+            
+            const emailInput = document.getElementById('emailInput');
+            const subscribeBtn = document.getElementById('subscribeBtn');
+            const email = emailInput.value;
+            
+            if (!email) return;
+            
+            // Simulate subscription process
+            subscribeBtn.innerHTML = '<div class="loading"></div>';
+            subscribeBtn.disabled = true;
+            
+            setTimeout(() => {
+                subscribeBtn.innerHTML = '✅ ¡Suscrito!';
+                subscribeBtn.style.background = 'var(--electric-green)';
+                emailInput.value = '';
+                
+                // Show success message
+                showNotification('¡Bienvenido a La Chispa IA! Revisa tu email para confirmar la suscripción.');
+                
+                setTimeout(() => {
+                    subscribeBtn.innerHTML = 'Suscribirme';
+                    subscribeBtn.style.background = '';
+                    subscribeBtn.disabled = false;
+                }, 3000);
+            }, 2000);
+        }
+
+        // Notification system
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: var(--secondary-bg);
+                color: var(--text-primary);
+                padding: 1rem 2rem;
+                border-radius: 10px;
+                border: 1px solid var(--electric-green);
+                box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+                z-index: 10000;
+                animation: slideIn 0.5s ease-out;
+                max-width: 300px;
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.5s ease-out forwards';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 500);
+            }, 4000);
+        }
+
+        // Add CSS for notification animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Initialize animations
+        function initAnimations() {
+            const animatedElements = document.querySelectorAll('.article-card, .resource-card');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.8s ease';
+                observer.observe(el);
+            });
+        }
+
+        // AI Content Generation Simulation
+        function generateAIContent() {
+            const aiTopics = [
+                "Automatización de emails con IA",
+                "Creación de presentaciones con ChatGPT",
+                "Análisis de competencia con herramientas IA",
+                "Optimización SEO usando inteligencia artificial",
+                "Gestión de redes sociales automatizada",
+                "IA para análisis financiero personal"
+            ];
+            
+            return aiTopics[Math.floor(Math.random() * aiTopics.length)];
+        }
+
+        // Simulate AI-powered content suggestions
+        function showAISuggestion() {
+            const suggestion = generateAIContent();
+            showNotification(`💡 Sugerencia IA: "${suggestion}" - ¿Te interesa este tema?`);
+        }
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize animations
+            initAnimations();
+            
+            // Show AI suggestion after some time
+            setTimeout(showAISuggestion, 10000);
+            
+            // Add keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && isMenuOpen) {
+                    toggleMenu();
+                }
+            });
+            
+            // Add smooth scroll behavior for internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Add some interactive elements
+        document.addEventListener('mousemove', function(e) {
+            const hero = document.querySelector('.hero');
+            const rect = hero.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            if (rect.top <= 0 && rect.bottom >= 0) {
+                const xPercent = x / rect.width;
+                const yPercent = y / rect.height;
+                
+                hero.style.background = `
+                    radial-gradient(circle at ${xPercent * 100}% ${yPercent * 100}%, 
+                    rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                    var(--primary-bg)
+                `;
+            }
+        });
+
+        // Performance optimization: Lazy loading simulation
+        function lazyLoadContent() {
+            const cards = document.querySelectorAll('.article-card, .resource-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    if (!this.dataset.loaded) {
+                        // Simulate content enhancement
+                        this.style.transform = 'scale(1.02)';
+                        this.dataset.loaded = 'true';
+                    }
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        }
+
+        // Article sharing and saving functions
+        function shareArticle() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Inteligencia Artificial: Qué es, cómo funciona y por qué ya forma parte de tu vida',
+                    text: 'Descubre cómo la IA está transformando nuestras vidas cotidianas',
+                    url: window.location.href
+                });
+            } else {
+                // Fallback: copy to clipboard
+                navigator.clipboard.writeText(window.location.href);
+                showNotification('🔗 Enlace copiado al portapapeles');
+            }
+        }
+
+        function saveArticle() {
+            const savedArticles = JSON.parse(localStorage.getItem('savedArticles') || '[]');
+            const article = {
+                id: 'ia-fundamentos',
+                title: 'Inteligencia Artificial: Qué es, cómo funciona y por qué ya forma parte de tu vida',
+                date: new Date().toISOString()
+            };
+            
+            if (!savedArticles.find(a => a.id === article.id)) {
+                savedArticles.push(article);
+                localStorage.setItem('savedArticles', JSON.stringify(savedArticles));
+                showNotification('💾 Artículo guardado en tu lista de lectura');
+            } else {
+                showNotification('📚 Este artículo ya está en tu lista guardada');
+            }
+        }
+
+        // Initialize lazy loading
+        setTimeout(lazyLoadContent, 1000);
+    </script>
+</body>
+</html>
